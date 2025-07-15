@@ -1,29 +1,46 @@
 import { useState } from 'react';
 
 import Perfil from './components/Perfil';
-import Formulario from './components/Formulario';
 import ReposList from './components/ReposList';
+import Formulario from './components/Formulario';
 
 function App() {
-  const [formularioEstaVisivel, setFormularioEstaVisivel] = useState(true);
-  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [usernameInput, setUsernameInput] = useState('');
+  const [submitUsername, setSubmitUsername] = useState('');
+
+  const searchSubmit = (e) => {
+    e.preventDefault();
+    if (usernameInput.trim()){
+      setSubmitUsername(usernameInput.trim());
+    }
+  };
+
+  const resetSearch = () => {
+    setUsernameInput('');
+    setSubmitUsername('');
+  };
 
   return (
     <>
-      <input type="text" onBlur={(e) => setNomeUsuario(e.target.value)} />
-
-      {nomeUsuario.length > 4 && (
+      {!submitUsername ? (
+        <div className='container-principal'>
+          <div className='container-search'>
+            <form onSubmit={searchSubmit}>
+              <label className='label-search'>Escreva o nome do usuário aqui:</label>
+                <input type="text" className='user-search' value={usernameInput} onChange={(e) => setUsernameInput(e.target.value)}/>
+                <button type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      ) : (
         <>
-          <Perfil nomeUsuario={nomeUsuario} />
-          <ReposList nomeUsuario={nomeUsuario} />
+          <button type="button" onClick={resetSearch} className='btn-nova-busca'>
+            Nova Pesquisa
+          </button>
+          <Perfil nomeUsuario={submitUsername}/>
+          <ReposList nomeUsuario={submitUsername}/>
         </>
       )}
-      
-      {/* {formularioEstaVisivel && (
-        <Formulario />
-      )}
-      
-      <button type='button' onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)}>Toggle Form</button> */}
     </>
   )
 }

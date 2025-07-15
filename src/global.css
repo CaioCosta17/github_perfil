@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -14,4 +14,70 @@
 :root {
     --corPrincipal: #9CE2B0;
     --corSecundaria: #111;
+}
+
+.container-principal {
+    height: 80vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container-search {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 1px 8px 16px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.container-search form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.label-search {
+    font-weight: bold;
+    color: #333;
+}
+
+.user-search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.container-search button {
+    background-color: #9CE2B0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-nova-busca {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px #000;
+}
+
+.btn-nova-busca:hover {
+    background-color: #e0e0e0;
+    color: #2e2e2e;
+}
+
+.container-search button:hover {
+    background-color: #93dda8;
 }

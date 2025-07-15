@@ -53,7 +53,7 @@ const Formulario = () => {
                 ))}
             </ul>
 
-            <input type="text" placeholder="Seu Nome" onChange={alteraNome} />
+            <input type="text" placeholder="Seu Nome" onChange={alteraNome} id="procura-usuario" />
             <input type="number" placeholder="Nota matéria A" onChange={({ target }) => setMateriaA(parseInt(target.value))} />
             <input type="number" placeholder="Nota matéria B" onChange={evento => setMateriaB(parseInt(evento.target.value))} />
             <input type="number" placeholder="Nota matéria C" onChange={evento => setMateriaC(parseInt(evento.target.value))} />
